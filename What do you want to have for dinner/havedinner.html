@@ -3,9 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Troll your friends with Trolling.fun" />
-    <title>Trolling | We do a little trolling</title>
-    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <title>Bae, What do you want to have for dinner ? 😋</title>
+    <link rel="stylesheet" type="text/css" href="havedinner.css" />
   </head>
   <body>
     <style>
@@ -48,27 +47,33 @@
         </ul>
       </nav>
     </header>
-    <div class="container">
-      <div class="box">
-        <a href="/Do you love me/doyouloveme.html">Do you love me?</a>
-      </div>
-      <div class="box">
-        <a href="/Nick ! Who is/kiss.html">Which one of these girls do you want to kiss?</a>
-      </div>
-      <div class="box">
-        <a href="/What do you want to have for dinner/havedinner.html">What do you want to have for dinner?</a>
-      </div>
-      <div class="box">
-        <p>Description 1</p>
-      </div>
-      <div class="box">
-        <p>Description 1</p>
-      </div>
-      <div class="box">
-        <p>Description 1</p>
-      </div>
-      <!-- Thêm các ô trống khác tương tự ở đây -->
-      <!-- Mỗi ô sẽ có cấu trúc giống nhau -->
+    <div id="question">
+      <h2 style="color: white">
+        Bae, What do you want to have for dinner ? 😋
+      </h2>
     </div>
+    <div id="answers">
+      <div
+        class="answer"
+        id="you"
+        onclick="showResult('you')"
+        style="text-align: center"
+      >
+        <img
+          src="./img/You.png"
+          alt="You"
+          style="display: block; margin: auto"
+        />
+        <span style="color: white">You</span>
+      </div>
+      <div class="answer" id="salad" onclick="showResult('salad')">
+        <img src="./img/Salad.png" alt="Pizza" />
+      </div>
+      <div class="answer" id="pizza" onclick="showResult('pizza')">
+        <img src="./img/pizza.png" alt="Pizza" />
+      </div>
+    </div>
+
+    <script src="havedinner.js"></script>
   </body>
 </html>
