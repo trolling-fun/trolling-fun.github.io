@@ -3,8 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Do You Love Me</title>
-    <link rel="stylesheet" type="text/css" href="doyouloveme.css" />
+    <title>Open Your Gift</title>
+    <link rel="stylesheet" href="xuxxac.css" />
+  </head>
+  <body>
     <style>
       nav ul {
         list-style-type: none;
@@ -31,12 +33,11 @@
 
       /* Đặt nút "Home" ra góc ngoài cùng bên trái */
       nav ul li:first-child {
-        float: none;
         position: absolute;
         top: 0;
+        left: 0;
       }
     </style>
-  </head>
   <body>
     <header>
       <nav>
@@ -46,21 +47,17 @@
         </ul>
       </nav>
     </header>
-    <div id="question">
-      <h2>Do you love me? ♥️</h2>
+  <body>
+    <div class="container">
+      <h1>Open Your Gift</h1>
+      <img
+        id="giftImage"
+        src="/openyourgift/gift-present-prize-icon-24.png"
+        alt="Gift"
+        onclick="openGift()"
+      />
+      <div id="message"></div>
     </div>
-    <div id="answers">
-      <div class="answer" id="yes" onclick="showResult('yes')">Yes</div>
-      <div
-        class="answer"
-        id="no"
-        onmouseenter="moveNo()"
-        onclick="showResult('no')"
-      >
-        No
-      </div>
-    </div>
-
-    <script src="doyouloveme.js"></script>
+    <script src="xuxxac.js"></script>
   </body>
 </html>

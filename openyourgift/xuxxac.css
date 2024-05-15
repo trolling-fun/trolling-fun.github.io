@@ -1,0 +1,42 @@
+body {
+  background-color: #48c9b0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  text-align: center;
+  color: black;
+  position: relative;
+}
+
+h1 {
+  margin: 0;
+}
+
+#giftImage {
+  cursor: pointer;
+  margin-top: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+#newGiftImage {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -150px; /* Vị trí ban đầu của hình ảnh thứ hai */
+  opacity: 0;
+  transition: bottom 1s ease-out, opacity 1s ease-out;
+  z-index: 0;
+}
+
+#message {
+  margin-top: 20px;
+  font-size: 18px;
+  color: black;
+}
