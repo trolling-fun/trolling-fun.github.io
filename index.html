@@ -1,108 +1,321 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <link rel="icon" type="image/x-icon" href="/imagine/icon nho.png" />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Troll your friends with Trolling.fun" />
-    <title>Trolling | Play Trolling Games :D</title>
-    <link rel="stylesheet" type="text/css" href="styles.css" />
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8NH8RY3EFC"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-8NH8RY3EFC');
-</script>
-  </head>
-  <body>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Rooms</title>
     <style>
-      nav ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-      }
-
-      nav ul li {
-        float: left;
-      }
-
-      nav ul li a {
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-      }
-
-      nav ul li a:hover {
-        background-color: #111;
-      }
-
-      /* Đặt nút "Home" ra góc ngoài cùng bên trái */
-      nav ul li:first-child {
-        position: absolute;
-        top: 0;
-        left: 0;
-      }
-    </style>
-  <body>
-    <header>
-      <nav>
-        <ul>
-          <li><a href="/index.html">Home</a></li>
-          <!-- Thêm các mục menu khác nếu cần -->
-        </ul>
-      </nav>
-    </header>
-    <div class="content">
-      <style>
-        p, li {
-          margin-bottom: 1px;
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
         }
-      </style>
-        <h1> TROLLING YOUR FRIENDS</h1>
-        <p>This website is about trolling and is completely free. 
-          If you want me to create a new game or modify existing games according to your wishes, 
-          you can message me on <a href="https://www.tiktok.com/@haleyplaygame" target="_blank">TikTok</a> 
-          and I will make the changes for you.</p>
-          You can use the Ctrl + F key combination to search for games by keyword.
-        <p>Below are some of my code projects that you can access to experience:</p>
-        <li><p><a href="https://tiny-fishing.github.io" target="_blank">Tiny Fishing</a></p></li>
-        <li><p><a href="https://haleyschool.github.io" target="_blank">Haleyschool</a></p></li>
-        <li><p><a href="https://haleyschool.com" target="_blank">Game News</a></p></li>
-    </div>
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 32px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .search-section {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .search-section input {
+            flex-grow: 1;
+            padding: 12px 20px;
+            border: 2px solid #eee;
+            border-radius: 25px;
+            outline: none;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .search-section input:focus {
+            border-color: #667eea;
+        }
+
+        .create-room {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 12px 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .create-room:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .rooms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .room-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .room-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        .room-card h3 {
+            margin: 0 0 10px 0;
+            color: #333;
+        }
+
+        .room-card p {
+            margin: 0;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .room-stats {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+            font-size: 14px;
+            color: #888;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 500px;
+        }
+
+        .modal-content h2 {
+            margin: 0 0 20px 0;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #666;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #eee;
+            border-radius: 10px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: #667eea;
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+        }
+
+        .modal-buttons button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        .cancel-btn {
+            background: #eee;
+            color: #666;
+        }
+
+        .create-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .cancel-btn:hover, .create-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .rooms-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
     <div class="container">
-      <div class="box">
-        <a href="/Do you love me/doyouloveme.html">Do you love me?</a>
-      </div>
-      <div class="box">
-        <a href="/Nick ! Who is/kiss.html"
-          >Which one of these girls do you want to kiss?</a
-        >
-      </div>
-      <div class="box">
-        <a href="/What do you want to have for dinner/havedinner.html"
-          >What do you want to have for dinner?</a
-        >
-      </div>
-      <div class="box">
-        <a href="/areyougay/areyougay.html">Are you gay ?</a>
-      </div>
-      <div class="box">
-        <a href="/openyourgift/xuxxac.html">Open your gift</a>
-      </div>
-      <div class="box">
-        <a href="dylm alexa/alexa.html">Alexia ! Do you love me ?</a>
-      </div>
-      <div class="box">
-        <a href="/dylm diana/diana.html">Diana ! Do you love me ?</a>
-      </div>
-      <!-- Thêm các ô trống khác tương tự ở đây -->
-      <!-- Mỗi ô sẽ có cấu trúc giống nhau -->
+        <div class="header">
+            <h1>Chat Rooms</h1>
+        </div>
+        <div class="search-section">
+            <input type="text" id="searchInput" placeholder="Tìm kiếm phòng chat...">
+            <button class="create-room" onclick="showCreateModal()">Tạo phòng mới</button>
+        </div>
+        <div class="rooms-grid" id="roomsGrid">
+            <!-- Rooms will be added here dynamically -->
+        </div>
     </div>
-  </body>
+
+    <!-- Create Room Modal -->
+    <div class="modal" id="createModal">
+        <div class="modal-content">
+            <h2>Tạo phòng chat mới</h2>
+            <div class="form-group">
+                <label for="roomName">Tên phòng</label>
+                <input type="text" id="roomName" placeholder="Nhập tên phòng">
+            </div>
+            <div class="form-group">
+                <label for="roomDescription">Mô tả</label>
+                <textarea id="roomDescription" rows="3" placeholder="Mô tả phòng chat của bạn"></textarea>
+            </div>
+            <div class="modal-buttons">
+                <button class="cancel-btn" onclick="hideCreateModal()">Hủy</button>
+                <button class="create-btn" onclick="createRoom()">Tạo phòng</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        import { database } from './firebase-config.js';
+        import { ref, push, onValue, set } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-database.js";
+
+        const roomsGrid = document.getElementById('roomsGrid');
+        const searchInput = document.getElementById('searchInput');
+        const createModal = document.getElementById('createModal');
+
+        // Lắng nghe thay đổi trong danh sách phòng
+        onValue(ref(database, 'rooms'), (snapshot) => {
+            const rooms = snapshot.val() || {};
+            displayRooms(rooms);
+        });
+
+        // Hiển thị danh sách phòng
+        function displayRooms(rooms) {
+            roomsGrid.innerHTML = '';
+            Object.entries(rooms).forEach(([roomId, room]) => {
+                const roomCard = document.createElement('div');
+                roomCard.className = 'room-card';
+                roomCard.innerHTML = `
+                    <h3>${room.name}</h3>
+                    <p>${room.description || 'Không có mô tả'}</p>
+                    <div class="room-stats">
+                        <span>👥 ${room.userCount || 0} người dùng</span>
+                        <span>💬 ${room.messageCount || 0} tin nhắn</span>
+                    </div>
+                `;
+                roomCard.onclick = () => window.location.href = `chat.html?room=${roomId}`;
+                roomsGrid.appendChild(roomCard);
+            });
+        }
+
+        // Tìm kiếm phòng
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            const roomCards = roomsGrid.getElementsByClassName('room-card');
+            
+            Array.from(roomCards).forEach(card => {
+                const roomName = card.querySelector('h3').textContent.toLowerCase();
+                const roomDesc = card.querySelector('p').textContent.toLowerCase();
+                
+                if (roomName.includes(searchTerm) || roomDesc.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+
+        // Hiển thị modal tạo phòng
+        window.showCreateModal = function() {
+            createModal.style.display = 'flex';
+        }
+
+        // Ẩn modal tạo phòng
+        window.hideCreateModal = function() {
+            createModal.style.display = 'none';
+        }
+
+        // Tạo phòng mới
+        window.createRoom = function() {
+            const roomName = document.getElementById('roomName').value.trim();
+            const roomDescription = document.getElementById('roomDescription').value.trim();
+
+            if (!roomName) {
+                alert('Vui lòng nhập tên phòng');
+                return;
+            }
+
+            const newRoomRef = push(ref(database, 'rooms'));
+            set(newRoomRef, {
+                name: roomName,
+                description: roomDescription,
+                createdAt: Date.now(),
+                userCount: 0,
+                messageCount: 0
+            });
+
+            hideCreateModal();
+            document.getElementById('roomName').value = '';
+            document.getElementById('roomDescription').value = '';
+        }
+    </script>
+</body>
 </html>
